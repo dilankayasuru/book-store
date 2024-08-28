@@ -2,22 +2,16 @@
     <h1>Add Book</h1>
     <form method="POST">
         <fieldset>
-            <p>
-                <label>ISBN No: </label>
-                <input type="text" name="isbn">
-            </p>
+            <label for="isbn">ISBN No: </label>
+            <input type="text" name="isbn" id="isbn">
         </fieldset>
         <fieldset>
-            <p>
-                <label>Title: </label>
-                <input type="text" name="title">
-            </p>
+            <label for="title">Title: </label>
+            <input type="text" name="title" id="title">
         </fieldset>
         <fieldset>
-            <p>
-                <label>Author: </label>
-                <input type="text" name="author">
-            </p>
+            <label for="author">Author: </label>
+            <input type="text" name="author" id="author">
         </fieldset>
         <button type="submit">Add Book</button>
     </form>

@@ -5,25 +5,19 @@
     <!-- Form to update book details, using POST method -->
     <form method="POST">
         <fieldset>
-            <p>
-                <!-- Label and input field for the book ISBN -->
-                <label>Title: </label>
-                <input type="text" name="isbn" placeholder="<?= $book['isbn']; ?>">
-            </p>
+            <!-- Label and input field for the book ISBN -->
+            <label for="isbn">ISBN: </label>
+            <input type="text" name="isbn" placeholder="<?= $book['isbn']; ?>" id="isbn">
         </fieldset>
         <fieldset>
-            <p>
-                <!-- Label and input field for the book title -->
-                <label>Title: </label>
-                <input type="text" name="title" placeholder="<?= $book['title']; ?>">
-            </p>
+            <!-- Label and input field for the book title -->
+            <label for="title">Title: </label>
+            <input type="text" name="title" placeholder="<?= $book['title']; ?>" id="title">
         </fieldset>
         <fieldset>
-            <p>
-                <!-- Label and input field for the book author -->
-                <label>Author: </label>
-                <input type="text" name="author" placeholder="<?= $book['author']; ?>">
-            </p>
+            <!-- Label and input field for the book author -->
+            <label for="author">Author: </label>
+            <input type="text" name="author" placeholder="<?= $book['author']; ?>" id="author">
         </fieldset>
         <!-- Submit button to update the book details -->
         <button type="submit">Update</button>

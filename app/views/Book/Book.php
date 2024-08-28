@@ -1,5 +1,4 @@
 <!-- View single book from id -->
-
 <div>
     <h1>Book</h1>
     <!-- Get extracted data from renderView method -->
