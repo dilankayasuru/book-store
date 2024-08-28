@@ -38,14 +38,8 @@ Example config.php file
 
 ```apache_conf
 RewriteEngine On
-
-# If the requested resource is not a directory
 RewriteCond %{REQUEST_FILENAME} !-d
-
-# If the requested resource is not a file
 RewriteCond %{REQUEST_FILENAME} !-f
-
-# Rewrite all other requests to index.php, appending query string parameters and marking this as the last rule
 RewriteRule ^(.+)$ index.php?url=$1 [QSA,L]
 ```
 
