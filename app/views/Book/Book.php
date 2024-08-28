@@ -16,5 +16,5 @@
         <li>Date Added: <?= $book['date_added'] ?></li>
     </ul>
     <!-- Link to redirect to view all books -->
-    <a href="../public/books">View All Books</a>
+    <a href="../../books">View All Books</a>
 </div>

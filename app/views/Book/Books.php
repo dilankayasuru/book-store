@@ -21,9 +21,9 @@
                 <td><?= $book['author'] ?></td>
                 <td><?= $book['date_added'] ?></td>
                 <!-- Action links for each book -->
-                <td><a href="book/delete?id=<?= $book['id']; ?>">Delete</a></td>
-                <td><a href="book/update?id=<?= $book['id']; ?>">Update</a></td>
-                <td><a href="book?id=<?= $book['id']; ?>">View</a></td>
+                <td><a href="book/delete/<?= $book['id']; ?>">Delete</a></td>
+                <td><a href="book/update/<?= $book['id']; ?>">Update</a></td>
+                <td><a href="book/id/<?= $book['id']; ?>">View</a></td>
             </tr>
         <?php endforeach; ?>
     </table>

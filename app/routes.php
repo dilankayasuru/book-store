@@ -9,7 +9,7 @@ $routes = [
     'books' => ['controller' => 'BookController', 'method' => 'index'],
 
     // Route for a specific book page, maps to the 'bookId' method of 'BookController'
-    'book' => ['controller' => 'BookController', 'method' => 'bookById'],
+    'book/id' => ['controller' => 'BookController', 'method' => 'bookById'],
 
     // Route for adding a new book, maps to the 'addBook' method of 'BookController'
     'book/add' => ['controller' => 'BookController', 'method' => 'addNewBook'],

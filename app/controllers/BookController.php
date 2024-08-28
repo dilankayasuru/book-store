@@ -37,7 +37,7 @@ class BookController extends Controller
         // Delete the book with the given ID
         $bookModel->delete($id);
         // Redirect to the books list page
-        header('Location: ../books');
+        header('Location: ../../books');
     }
 
     // Method to display a book by its ID
@@ -61,7 +61,7 @@ class BookController extends Controller
             // Update the book with the given ID using data from the POST request
             $bookModel->update($id, $_POST['title'], $_POST['author'], $_POST['isbn']);
             // Redirect to the books list page
-            header('Location: ../books');
+            header('Location: ../../books');
         }
         // Retrieve the book with the given ID
         $book = $bookModel->getBookById($id);

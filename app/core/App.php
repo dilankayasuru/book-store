@@ -30,7 +30,7 @@ class App
         // Check if the second part of the URL exists
         if (isset($urlParts[1])) {
             // Append the second part of the URL to the route
-            $route = $route . '/' . $urlParts[1];
+            $route = $urlParts[0] . '/' . $urlParts[1];
         }
 
         // Check if the route exists in the routes array in router.php file
@@ -39,6 +39,9 @@ class App
             $this->controller = $routes[$route]['controller'];
             // Set the method based on the route configuration
             $this->method = $routes[$route]['method'];
+            // Set the remaining parts of the url to the params
+            $this->params = array_slice($urlParts, 2);
+
         } else {
             // If the route is not found, display a 404 error message
             echo "404 - Route Not found!";
@@ -63,50 +66,12 @@ class App
     // Function to parse the URL and return its components
     private function parseUrl()
     {
-        // Get the request URI
-        $uri = $_SERVER['REQUEST_URI'];
-
-        // Split the URI into path and query string (i.e., additional parameters contains in the url that use to pass data to the server)
-        // --------------------------------------------------------------------------------------------------------------------
-        // Ex: 
-        //      Browser URL = "http://localhost/book-store/public/book?id=3"
-        //      $uri = "/book-store/public/book?id=3"
-        //      $parts = ["/book-store/public/book", "id=3"]
-        // 
-        // parse_str($parts[1], $args) method will return an array look like this
-        //      $args = ['id' => 3]
-        // --------------------------------------------------------------------------------------------------------------------
-
-        $parts = explode('?', $uri);
-
-        // If there is a query string, parse it into parameters
-        if (isset($parts[1])) {
-            parse_str($parts[1], $args);
-            // Set the parameters to the parsed query string
-            $this->params = $args;
-        } else {
-            // If no query string, set parameters to an empty array
-            $this->params = [];
+        // Check if the 'url' parameter is set in the GET request (.htaccess configurations will process the url)
+        if (isset($_GET['url'])) {
+            // Trim any trailing slashes from the URL, sanitize it, and split it into an array
+            return explode('/', filter_var(rtrim($_GET['url'], '/'), FILTER_SANITIZE_URL));
         }
-
-        // Split the path into segments and sanitize it
-        // ---------------------------------------------------------------------------
-        // substr($parts[0], 1) is used to remove the first (string --> '/') from the url
-        // Ex:
-        //      input --> "/book-store/public/book/"
-        //      output --> "book-store/public/book/"
-        // ---------------------------------------------------------------------------
-        $url = explode('/', filter_var(rtrim((substr($parts[0], 1)), FILTER_SANITIZE_URL)));
-
-        // Remove the first two segments (the base URL)
-        // ---------------------------------------------------------------------------
-        // Ex:
-        //      input --> ['book-store', 'public', 'book']
-        //      output --> ['book']
-        // ---------------------------------------------------------------------------
-        $path = array_slice($url, 2);
-        
-        // Return the remaining path segments
-        return $path;
+        // Return an array with an empty string if 'url' parameter is not set 
+        return [''];
     }
 }
