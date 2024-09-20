@@ -1,7 +1,7 @@
 <?php
 
 class BookController extends Controller
-{ 
+{
     // Method to display all books
     public function index()
     {
@@ -23,7 +23,7 @@ class BookController extends Controller
             // Add a new book using data from the POST request
             $bookModel->addBook($_POST["title"], $_POST["author"], $_POST['isbn']);
             // Redirect to the main page where all the books are listed in a table
-            header('Location: ../books');
+            header('Location: ' . BASE_URL . 'books');
         }
         // Render the view to add a new book
         $this->renderView('Book/AddBook');
@@ -37,7 +37,7 @@ class BookController extends Controller
         // Delete the book with the given ID
         $bookModel->delete($id);
         // Redirect to the books list page
-        header('Location: ../../books');
+        header('Location: ' . BASE_URL . 'books');
     }
 
     // Method to display a book by its ID
@@ -61,7 +61,7 @@ class BookController extends Controller
             // Update the book with the given ID using data from the POST request
             $bookModel->update($id, $_POST['title'], $_POST['author'], $_POST['isbn']);
             // Redirect to the books list page
-            header('Location: ../../books');
+            header('Location: ' . BASE_URL . 'books');
         }
         // Retrieve the book with the given ID
         $book = $bookModel->getBookById($id);

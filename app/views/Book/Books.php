@@ -21,12 +21,12 @@
                 <td><?= $book['author'] ?></td>
                 <td><?= $book['date_added'] ?></td>
                 <!-- Action links for each book -->
-                <td><a href="book/delete/<?= $book['id']; ?>">Delete</a></td>
-                <td><a href="book/update/<?= $book['id']; ?>">Update</a></td>
-                <td><a href="book/id/<?= $book['id']; ?>">View</a></td>
+                <td><a href="<?=BASE_URL?>book/delete/<?= $book['id']; ?>">Delete</a></td>
+                <td><a href="<?=BASE_URL?>book/update/<?= $book['id']; ?>">Update</a></td>
+                <td><a href="<?=BASE_URL?>book/id/<?= $book['id']; ?>">View</a></td>
             </tr>
         <?php endforeach; ?>
     </table>
     <!-- Link to add a new book -->
-    <a href="book/add">Add new book</a>
+    <a href="<?=BASE_URL?>book/add">Add new book</a>
 </div>

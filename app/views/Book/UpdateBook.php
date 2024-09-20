@@ -23,5 +23,5 @@
         <button type="submit">Update</button>
     </form>
     <!-- Link to view all books -->
-    <a href="../../books">View All Books</a>
+    <a href="<?=BASE_URL?>books">View All Books</a>
 </div>
